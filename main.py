@@ -12,13 +12,13 @@ while True:
 
     if(opcao == "1"):
          n = float(input("Digite o valor de N: "))
-         raio, velocidade, eCinetica, ePotencial, eToral, ondaBroglie = raioOrbita(n)
+         raio, velocidade, eCinetica, ePotencial, eTotal, ondaBroglie = raioOrbita(n)
 
          raioNotacao = "{:.4e}".format(raio)
          velocidadeNotacao = "{:.4e}".format(velocidade)
          eCineticaNotacao = "{:.4e}".format(eCinetica)
          ePotencialNotacao = "{:.4e}".format(ePotencial)
-         eTotalNotacao = "{:.4e}".format(eToral)
+         eTotalNotacao = "{:.4e}".format(eTotal)
          ondaBroglieNotacao = "{:.4e}".format(ondaBroglie)
 
          print()

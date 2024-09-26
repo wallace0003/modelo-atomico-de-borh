@@ -1,8 +1,9 @@
-
 consBohr = 5.29 * (10 ** -11)
 veloEletron = 2.187 * (10**6)
 hJaule = 6.62607015 * (10**-34)
 mEletron = 9.10938356 * (10**-31)
+
+#Ela não quer nenhum valor negativo!
 
 def raioOrbita(n):
     raio = (n**2) * consBohr
