@@ -6,6 +6,7 @@ while True:
     print()
 
     print("1 - Entrada de N")
+    print("2 - Entrado do N-inicial e N-final")
     print("3 - N inicial ou final em razão de um fóton absorvido")
     print("0 - Sair.")
     print()
@@ -33,6 +34,31 @@ while True:
          print(f"λn (comprimento de onda de De Broglie do elétron) = {ondaBroglieNotacao} [m]")
          print()
 
+    elif(opcao == "2"):
+        nI = float(input("Digite o valor de N-inicial: "))
+        nF = float(input("Digite o valor de N-final: "))
+
+        energiaFotonEm_eV, energiaFotonJ, frequenciaFoton, comprimentoOndaFoton = calcular_foton(nI, nF)
+
+        if energiaFotonEm_eV < 0 or energiaFotonJ < 0 or frequenciaFoton < 0 or comprimentoOndaFoton < 0:
+            energiaFotonEm_eV = abs(energiaFotonEm_eV)
+            energiaFotonJ = abs(energiaFotonJ)
+            frequenciaFoton = abs(frequenciaFoton)
+            comprimentoOndaFoton = abs(comprimentoOndaFoton)
+
+        energiaFotonEm_eV_Notacao = "{:.4e}".format(energiaFotonEm_eV) 
+        energiaFotonJ_Notacao = "{:.4e}".format(energiaFotonJ)
+        frequenciaFoton_Notacao = "{:.4e}".format(frequenciaFoton)
+        comprimentoOndaFoton_Notacao = "{:.4e}".format(comprimentoOndaFoton)
+
+        
+
+        print()
+        print(f"Efóton (em eV): {energiaFotonEm_eV_Notacao} eV")
+        print(f"Efóton (em Joules): {energiaFotonJ_Notacao} J") #No questionario nao tem mais eu coloquei só pra garantir
+        print(f"Frequência do fóton (ffóton): {frequenciaFoton_Notacao} Hz")
+        print(f"Comprimento de onda do fóton (λfóton): {comprimentoOndaFoton_Notacao} m")
+        print()
 
     elif(opcao == "3"):
         n = float(input("Digite o valor de N (Inicial ou final): "))

@@ -6,6 +6,8 @@ hJaule = 6.62607015 * (10**-34)
 hEv = 4.1356677 * (10**-15)
 mEletron = 9.10938356 * (10**-31)
 c = 3e8
+const_energia = 13.6 #(eV)
+converte_eV_para_Joules = 1.60218e-19
 
 #Ela não quer nenhum valor negativo!
 
@@ -17,6 +19,22 @@ def raioOrbita(n):
     eTotal = -13.6 / (n**2)
     ondaBroglie = hJaule / (mEletron * velocidade)
     return raio, velocidade, eCinetica, ePotencial, eTotal, ondaBroglie
+
+
+def calcular_foton(nI, nF):
+    # Energia do fóton em eV
+    energiaFotonEm_eV = const_energia * ((1 / nI**2) - (1 / nF**2))
+    
+    # Convertendo energia do fóton de eV para Joules
+    energiaFotonJ = energiaFotonEm_eV * converte_eV_para_Joules
+    
+    # Frequência do fóton (ffóton)
+    frequenciaFoton = energiaFotonJ / hJaule
+    
+    # Comprimento de onda do fóton (λfóton)
+    comprimentoOndaFoton = (hJaule * c) / energiaFotonJ
+    
+    return energiaFotonEm_eV, energiaFotonJ, frequenciaFoton, comprimentoOndaFoton
 
 def nPorFotonAbsorvido(n, foton, nInicial = True, fotonFrequencia = True):
     # n = n inicial ou n fínal do eletron
