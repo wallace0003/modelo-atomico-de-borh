@@ -22,6 +22,7 @@ while True:
     print("3 - N inicial ou final em razão de um fóton absorvido")
     print("4 - ")
     print("5 - Entrada de  Ffóton[Hz] ou λFóton[m]: ")
+    print("6 - Entrada de Efóton [eV] ou [J]")
     print("0 - Sair.")
     print()
 
@@ -68,10 +69,10 @@ while True:
         
 
         print()
-        print(f"Efóton (em eV): {energiaFotonEm_eV_Notacao} eV")
-        print(f"Efóton (em Joules): {energiaFotonJ_Notacao} J") #No questionario nao tem mais eu coloquei só pra garantir
-        print(f"Frequência do fóton (ffóton): {frequenciaFoton_Notacao} Hz")
-        print(f"Comprimento de onda do fóton (λfóton): {comprimentoOndaFoton_Notacao} m")
+        print(f"Efóton (em eV): {energiaFotonEm_eV_Notacao} [eV]")
+        print(f"Efóton (em Joules): {energiaFotonJ_Notacao} [J]") #No questionario nao tem mais eu coloquei só pra garantir
+        print(f"Frequência do fóton (ffóton): {frequenciaFoton_Notacao} [Hz]")
+        print(f"Comprimento de onda do fóton (λfóton): {comprimentoOndaFoton_Notacao} [m]")
         print()
 
     elif(opcao == "3"):
@@ -89,11 +90,11 @@ while True:
             fotonOpcao = input("Os dados do fóton serão em Frequência(f)(1), ou  em Comprimento de Onda(λ)(2)?: ")
             if(fotonOpcao == "1"):
                 fotonOpcao = True
-                foton = float(input("Digite a frequência do fóton (Hz): "))
+                foton = float(input("Digite a frequência do fóton [Hz]: "))
                 break
             elif(fotonOpcao == "2"):
                 fotonOpcao = False
-                foton = float(input("Digite o comprimento do fóton (m): "))
+                foton = float(input("Digite o comprimento do fóton [m]: "))
                 break
             else:
                 print("Entrada inválida, digite novamente.")
@@ -115,7 +116,33 @@ while True:
         ...
 
     elif(opcao == "5"):
-        ...
+        ffOuLamf = str(input("1 -> Ffóton(Frequência do fóton) | 2 -> λFóton(comprimento de onda do fóton): "))
+        while(ffOuLamf != "1" and ffOuLamf != "2"):
+            print("Digitação inválida, digite apenas 1 ou 2")
+            ffOuLamf = str(input("1 -> Ffóton(frequência do fóton) | 2 -> λFóton(comprimento de onda do fóton)"))
+
+        if(ffOuLamf == "1"):
+            frequenciaFoton = float(input("Digite o Ffóton(frequência do fóton) [Hz]: "))
+            eEv, eJ = energiaPorFrequencia(frequenciaFoton)
+            eEvNotacao = "{:.4e}".format(eEv) 
+            eJNotacao = "{:.4e}".format(eJ)
+            print()
+            print(f"Efóton(Energia do fóton) {eEvNotacao} [eV]")
+            print(f"Efóton(Energia do fóton) {eJNotacao} [J]")
+            print()
+
+        elif(ffOuLamf == "2"):
+            lambdaFoton = float(input("Digite o λFóton(comprimento de onda do fóton)[m]: "))
+            eEv, eJ = energiaPorComprimento(lambdaFoton)
+            eEvNotacao = "{:.4e}".format(eEv) 
+            eJNotacao = "{:.4e}".format(eJ) 
+            print()
+            print(f"Efóton(Energia do fóton) {eEvNotacao} [eV]")
+            print(f"Efóton(Energia do fóton) {eJNotacao} [J]")
+            print()
+
+    elif(opcao == "6"):
+        print("1 -> Efóton[eV] | 2 -> Efóton[J]")
 
         
     elif(opcao == "0"):
