@@ -67,7 +67,7 @@ def nPorFotonAbsorvido(n, foton, nInicial = True, fotonFrequencia = True):
     
     return nReturn, nReturnInt, nReturnInicial
 
-def energiaComprimento(lambdaFoton):
+def energiaPorComprimento(lambdaFoton):
     try:
         e = hEv*c/lambdaFoton
         return e
