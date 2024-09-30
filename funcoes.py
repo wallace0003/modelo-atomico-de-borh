@@ -80,4 +80,15 @@ def energiaPorFrequencia(frequencia):
     eEv = (hEv * frequencia)
     eJ = (hJaule * frequencia)
     return eEv, eJ
+
+def energiaEv(efoton):
+    comprimento = (hEv*c) / efoton
+    frequencia = (efoton / hEv)
+    return comprimento, frequencia
+
+def energiaJ(efoton):
+    comprimento = (hJaule*c) / efoton
+    frequencia = (efoton / hJaule)
+    return comprimento, frequencia
+
     

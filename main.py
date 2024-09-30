@@ -7,7 +7,7 @@ Wallace dos Santos Izidoro.
 Pedro Henrique da Fonseca do Nascimento.
 Vinícius do Nascimento Generoso.\n""")
 
-print("Calculadora do Modelo de Borh  em Python:\n")
+print("Calculadora do Modelo de Borh  em Python\n")
 
 print("Caso deseje entrar com valores em notação científica, utilize o formato abaixo:")
 print("1.23 x 10^4 --> 1.23e4\n")
@@ -22,7 +22,7 @@ while True:
     print("3 - N inicial ou final em razão de um fóton absorvido")
     print("4 - ")
     print("5 - Entrada de  Ffóton[Hz] ou λFóton[m]: ")
-    print("6 - Entrada de Efóton [eV] ou [J]")
+    print("6 - Entrada de Efóton em [eV] ou [J]")
     print("0 - Sair.")
     print()
 
@@ -32,7 +32,6 @@ while True:
     if(opcao == "1"):
          n = float(input("Digite o valor de N: "))
          raio, velocidade, eCinetica, ePotencial, eTotal, ondaBroglie = raioOrbita(n)
-
          raioNotacao = "{:.4e}".format(raio)
          velocidadeNotacao = "{:.4e}".format(velocidade)
          eCineticaNotacao = "{:.4e}".format(eCinetica)
@@ -115,6 +114,7 @@ while True:
     elif(opcao == "4"):
         ...
 
+
     elif(opcao == "5"):
         ffOuLamf = str(input("1 -> Ffóton(Frequência do fóton) | 2 -> λFóton(comprimento de onda do fóton): "))
         while(ffOuLamf != "1" and ffOuLamf != "2"):
@@ -127,8 +127,8 @@ while True:
             eEvNotacao = "{:.4e}".format(eEv) 
             eJNotacao = "{:.4e}".format(eJ)
             print()
-            print(f"Efóton(Energia do fóton) {eEvNotacao} [eV]")
-            print(f"Efóton(Energia do fóton) {eJNotacao} [J]")
+            print(f"Efóton(Energia do fóton): {eEvNotacao} [eV]")
+            print(f"Efóton(Energia do fóton): {eJNotacao} [J]")
             print()
 
         elif(ffOuLamf == "2"):
@@ -137,12 +137,37 @@ while True:
             eEvNotacao = "{:.4e}".format(eEv) 
             eJNotacao = "{:.4e}".format(eJ) 
             print()
-            print(f"Efóton(Energia do fóton) {eEvNotacao} [eV]")
-            print(f"Efóton(Energia do fóton) {eJNotacao} [J]")
+            print(f"Efóton(Energia do fóton): {eEvNotacao} [eV]")
+            print(f"Efóton(Energia do fóton): {eJNotacao} [J]")
             print()
 
     elif(opcao == "6"):
-        print("1 -> Efóton[eV] | 2 -> Efóton[J]")
+        print("Digite a opção que deseja.")
+        uniEfoton = str(input("1 -> Efóton[eV] | 2 -> Efóton[J]"))
+        while(uniEfoton != "1" and  uniEfoton != "2"):
+            print("Digitação inválida, digite apenas 1 ou 2")
+            uniEfoton= str(input("1 -> Efóton[eV] | 2 -> Efóton[J]"))
+
+        if(uniEfoton == "1"):
+            efoton = float(input("Digite Efóton(Energia do fóton) [eV]: "))
+            comprimento, frequencia = energiaEv(efoton)
+            comprimentoNotacao = "{:.4e}".format(comprimento) 
+            frequenciaNotacao = "{:.4e}".format(frequencia) 
+            print()
+            print(f"λFóton (comprimento de onda do fóton): {comprimentoNotacao} [m]")
+            print(f"Ffóton (frequência do fóton): {frequenciaNotacao} [Hz]")
+            print()
+
+        elif(uniEfoton == "2"):
+            efoton = float(input("Digite Efóton(Energia do fóton) [J]: "))
+            comprimento, frequencia =energiaJ(efoton)
+            comprimentoNotacao = "{:.4e}".format(comprimento) 
+            frequenciaNotacao = "{:.4e}".format(frequencia) 
+            print()
+            print(f"λFóton (comprimento de onda do fóton): {comprimentoNotacao} [m]")
+            print(f"Ffóton (frequência do fóton): {frequenciaNotacao} [Hz]")
+            print()
+
 
         
     elif(opcao == "0"):
