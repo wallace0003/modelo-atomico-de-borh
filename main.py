@@ -1,5 +1,17 @@
 from funcoes import *
 
+print("""Autores:
+
+Jônatas da Silva Gonçalves.
+Wallace dos Santos Izidoro.
+Pedro Henrique da Fonseca do Nascimento.
+Vinícius do Nascimento Generoso.\n""")
+
+print("Calculadora do Modelo de Borh  em Python:\n")
+
+print("Caso deseje entrar com valores em notação científica, utilize o formato abaixo:")
+print("1.23 x 10^4 --> 1.23e4\n")
+
 while True:
     print("Opções de entrada abaixo: ")
     print("-" * 30)
@@ -8,6 +20,8 @@ while True:
     print("1 - Entrada de N")
     print("2 - Entrado do N-inicial e N-final")
     print("3 - N inicial ou final em razão de um fóton absorvido")
+    print("4 - ")
+    print("5 - Entrada de  Ffóton[Hz] ou λFóton[m]: ")
     print("0 - Sair.")
     print()
 
@@ -96,6 +110,13 @@ while True:
         print(f"Energia do Número quântico {inicialOuFinal} (N): {round(nReturn, 2)} [eV]")
         print(f"Número Quântico {inicialOuFinal}: {nReturnInt}")
         print()
+    
+    elif(opcao == "4"):
+        ...
+
+    elif(opcao == "5"):
+        ...
+
         
     elif(opcao == "0"):
         print("Saindo...")

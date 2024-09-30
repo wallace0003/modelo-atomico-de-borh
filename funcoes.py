@@ -66,3 +66,11 @@ def nPorFotonAbsorvido(n, foton, nInicial = True, fotonFrequencia = True):
     nReturnInt = round(sqrt(13.6/abs(nReturn)))
     
     return nReturn, nReturnInt, nReturnInicial
+
+def energiaComprimento(lambdaFoton):
+    try:
+        e = hEv*c/lambdaFoton
+        return e
+    except ZeroDivisionError:
+        print("Impossível fazer está operação!")
+    
