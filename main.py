@@ -13,40 +13,40 @@ print("Caso deseje entrar com valores em notação científica, utilize o format
 print("1.23 x 10^4 --> 1.23e4\n")
 
 while True:
-    print("Opções de entrada abaixo: ")
+    print("Menu: ")
+        
     print("-" * 30)
-    print()
 
-    print("1 - Entrada de N")
-    print("2 - Entrado do N-inicial e N-final")
+    print("1 - Dados do elétron a partir de N")
+    print("2 - Dados do fóton emitido/absorvido a partir de N-inicial e N-final")
     print("3 - N inicial ou final em razão de um fóton absorvido")
     print("4 - N inicial ou final em razão de um fóton emitido")
-    print("5 - Entrada de  Ffóton[Hz] ou λFóton[m]: ")
-    print("6 - Entrada de Efóton em [eV] ou [J]")
+    print("5 - Energia do fóton a partir da frequência (f) ou comprimento de onda (λ)")
+    print("6 - Dados de frequência (f) e comprimento de onda (λ) do fóton a partir da energia")
     print("0 - Sair.")
     print()
 
-    opcao = str(input("Opção: "))
+    opcao = str(input("Digite o número da opção desejada: "))
     print()
     
     if(opcao == "1"):
-         n = float(input("Digite o valor de N: "))
-         raio, velocidade, eCinetica, ePotencial, eTotal, ondaBroglie = raioOrbita(n)
-         raioNotacao = "{:.4e}".format(raio)
-         velocidadeNotacao = "{:.4e}".format(velocidade)
-         eCineticaNotacao = "{:.4e}".format(eCinetica)
-         ePotencialNotacao = "{:.4e}".format(ePotencial)
-         eTotalNotacao = "{:.4e}".format(eTotal)
-         ondaBroglieNotacao = "{:.4e}".format(ondaBroglie)
-
-         print()
-         print(f"Rn (Raio da órbita) = {raioNotacao} [m]")
-         print(f"Vn (Velocidade) = {velocidadeNotacao} [m/s]")
-         print(f"Kn (energia cinética) = {eCineticaNotacao} [eV]")
-         print(f"Un (energia potencia) = {ePotencialNotacao} [eV]")
-         print(f"En (energia total) = {eTotalNotacao} [eV]")
-         print(f"λn (comprimento de onda de De Broglie do elétron) = {ondaBroglieNotacao} [m]")
-         print()
+        n = float(input("Digite o valor de N: "))
+        raio, velocidade, eCinetica, ePotencial, eTotal, ondaBroglie = raioOrbita(n)
+        raioNotacao = "{:.4e}".format(raio)
+        velocidadeNotacao = "{:.4e}".format(velocidade)
+        eCineticaNotacao = "{:.4e}".format(eCinetica)
+        ePotencialNotacao = "{:.4e}".format(ePotencial)
+        eTotalNotacao = "{:.4e}".format(eTotal)
+        ondaBroglieNotacao = "{:.4e}".format(ondaBroglie)
+        
+        print()
+        print(f"Rn (Raio da órbita) = {raioNotacao} [m]")
+        print(f"Vn (Velocidade) = {velocidadeNotacao} [m/s]")
+        print(f"Kn (energia cinética) = {eCineticaNotacao} [eV]")
+        print(f"Un (energia potencia) = {ePotencialNotacao} [eV]")
+        print(f"En (energia total) = {eTotalNotacao} [eV]")
+        print(f"λn (comprimento de onda de De Broglie do elétron) = {ondaBroglieNotacao} [m]")
+        print()
 
     elif(opcao == "2"):
         nI = float(input("Digite o valor de N-inicial: "))
@@ -75,79 +75,90 @@ while True:
         print()
 
     elif(opcao == "3"):
-        n = float(input("Digite o valor de N (Inicial ou final): "))
+        
         nOpcao = input("1 -> N incial / 2 -> N Final: ")
         if(nOpcao == "1"):
             nOpcao = True
+            n = float(input("Digite o valor de N (Inicial): "))
         elif(nOpcao == "2"):
             nOpcao = False
+            n = float(input("Digite o valor de N (Final): "))
         else:
             print("Entrada inválida.")
             print()
             continue
             
         while(True):
-            fotonOpcao = input("Os dados do fóton serão em Frequência(f)(1), ou  em Comprimento de Onda(λ)(2)?: ")
+            fotonOpcao = input("Dados do fóton em Frequência(Hz) -> 1 / Dados do fóton em Comprimento de Onda(m) -> 2: ")
             if(fotonOpcao == "1"):
                 fotonOpcao = True
                 foton = float(input("Digite a frequência do fóton [Hz]: "))
                 break
             elif(fotonOpcao == "2"):
                 fotonOpcao = False
-                foton = float(input("Digite o comprimento do fóton [m]: "))
+                foton = float(input("Digite o comprimento de onda do fóton [m]: "))
                 break
             else:
                 print("Entrada inválida, digite novamente.")
                 
+        try:
+            nReturn, nReturnInt, nReturnInicial = nPorFotonAbsorvido(n, foton, nOpcao, fotonOpcao)
         
-        nReturn, nReturnInt, nReturnInicial = nPorFotonAbsorvido(n, foton, nOpcao, fotonOpcao)
-        
-        if (nReturnInicial):
-            inicialOuFinal = "Inicial"
-        else:
-            inicialOuFinal = "Final"
-        
-        print()
-        print(f"Energia do Número quântico {inicialOuFinal} (N): {round(nReturn, 2)} [eV]")
-        print(f"Número Quântico {inicialOuFinal}: {nReturnInt}")
-        print()
+            if (nReturnInicial):
+                inicialOuFinal = "Inicial"
+            else:
+                inicialOuFinal = "Final"
+            
+            print()
+            print(f"Energia do Número quântico {inicialOuFinal}: {nReturn} [eV]")
+            print(f"Número Quântico(N) {inicialOuFinal}: {nReturnInt}")
+            print()
+            
+        except:
+            print("Valor inválido")
+            print()
     
     elif(opcao == "4"):
-        n = float(input("Digite o valor de N (Inicial ou final): "))
-        nOpcao = input("1 -> N inicial / 2 -> N Final: ")
-        if nOpcao == "1":
+        nOpcao = input("1 -> N incial / 2 -> N Final: ")
+        if(nOpcao == "1"):
             nOpcao = True
-        elif nOpcao == "2":
+            n = float(input("Digite o valor de N (Inicial): "))
+        elif(nOpcao == "2"):
             nOpcao = False
+            n = float(input("Digite o valor de N (Final): "))
         else:
             print("Entrada inválida.")
             print()
-            continue  # Retorna ao início do loop para uma nova entrada
+            continue
 
-        while True:
-            fotonOpcao = input("Os dados do fóton serão em Frequência(f)(1), ou em Comprimento de Onda(λ)(2)?: ")
-            if fotonOpcao == "1":
+        while(True):
+            fotonOpcao = input("Dados do fóton em Frequência(Hz) -> 1 / Dados do fóton em Comprimento de Onda(m) -> 2: ")
+            if(fotonOpcao == "1"):
                 fotonOpcao = True
                 foton = float(input("Digite a frequência do fóton [Hz]: "))
                 break
-            elif fotonOpcao == "2":
+            elif(fotonOpcao == "2"):
                 fotonOpcao = False
-                foton = float(input("Digite o comprimento do fóton [m]: "))
+                foton = float(input("Digite o comprimento de onda do fóton [m]: "))
                 break
             else:
                 print("Entrada inválida, digite novamente.")
+        
+        try:
+            nReturn, nReturnInt, nReturnInicial = nPorFotonEmitido(n, foton, nOpcao, fotonOpcao)
+            
+            if nReturnInicial:
+                inicialOuFinal = "Inicial"
+            else:
+                inicialOuFinal = "Final"
 
-        nReturn, nReturnInt, nReturnInicial = nPorFotonEmitido(n, foton, nOpcao, fotonOpcao)
-
-        if nReturnInicial:
-            inicialOuFinal = "Inicial"
-        else:
-            inicialOuFinal = "Final"
-
-        print()
-        print(f"Energia do Número quântico {inicialOuFinal} (N): {round(nReturn, 2)} [eV]")
-        print(f"Número Quântico {inicialOuFinal}: {nReturnInt}")
-        print()
+            print()
+            print(f"Energia do Número quântico {inicialOuFinal} (N): {nReturn} [eV]")
+            print(f"Número Quântico {inicialOuFinal}: {nReturnInt}")
+            print()
+        except:
+            print("Valor inválido")
+            print()
 
 
     elif(opcao == "5"):

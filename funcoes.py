@@ -57,9 +57,10 @@ def nPorFotonAbsorvido(n, foton, nInicial = True, fotonFrequencia = True):
     # Cálculo de n com base na energia do fóton
     if(nInicial):
         nReturn = nEnergia + energiaFoton
-        
     else:
         nReturn = nEnergia - energiaFoton
+    
+    nReturn = round(nReturn, 2)
     
     
     nReturnInicial = not(nInicial)
@@ -107,6 +108,8 @@ def nPorFotonEmitido(n, foton, nInicial=True, fotonFrequencia=True):
         nReturn = nEnergia - energiaFoton
     else:
         nReturn = nEnergia + energiaFoton
+        
+    nReturn = round(nReturn, 2)
 
     nReturnInicial = not nInicial
     nReturnInt = round(sqrt(13.6 / abs(nReturn)))
