@@ -20,7 +20,7 @@ while True:
     print("1 - Entrada de N")
     print("2 - Entrado do N-inicial e N-final")
     print("3 - N inicial ou final em razão de um fóton absorvido")
-    print("4 - ")
+    print("4 - N inicial ou final em razão de um fóton emitido")
     print("5 - Entrada de  Ffóton[Hz] ou λFóton[m]: ")
     print("6 - Entrada de Efóton em [eV] ou [J]")
     print("0 - Sair.")
