@@ -76,7 +76,7 @@ while True:
 
     elif(opcao == "3"):
         n = float(input("Digite o valor de N (Inicial ou final): "))
-        nOpcao = input("1. N incial / 2. N Final: ")
+        nOpcao = input("1 -> N incial / 2 -> N Final: ")
         if(nOpcao == "1"):
             nOpcao = True
         elif(nOpcao == "2"):
@@ -84,6 +84,7 @@ while True:
         else:
             print("Entrada inválida.")
             print()
+            continue
             
         while(True):
             fotonOpcao = input("Os dados do fóton serão em Frequência(f)(1), ou  em Comprimento de Onda(λ)(2)?: ")
@@ -113,7 +114,7 @@ while True:
     
     elif(opcao == "4"):
         n = float(input("Digite o valor de N (Inicial ou final): "))
-        nOpcao = input("1. N inicial / 2. N Final: ")
+        nOpcao = input("1 -> N inicial / 2 -> N Final: ")
         if nOpcao == "1":
             nOpcao = True
         elif nOpcao == "2":
