@@ -91,4 +91,26 @@ def energiaJ(efoton):
     frequencia = (efoton / hJaule)
     return comprimento, frequencia
 
+def nPorFotonEmitido(n, foton, nInicial=True, fotonFrequencia=True):
+    nEnergia = -13.6/(n**2)
+    energiaFoton = None
+
+    # Cálculo da energia do fóton
+    if fotonFrequencia:
+        energiaFoton = foton * hEv
+    else:
+        # foton como lambda
+        energiaFoton = (hEv * c) / foton
+
+    # Cálculo de n com base na energia do fóton emitido
+    if nInicial:
+        nReturn = nEnergia - energiaFoton
+    else:
+        nReturn = nEnergia + energiaFoton
+
+    nReturnInicial = not nInicial
+    nReturnInt = round(sqrt(13.6 / abs(nReturn)))
+
+    return nReturn, nReturnInt, nReturnInicial
+
     

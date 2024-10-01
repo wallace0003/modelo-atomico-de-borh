@@ -20,7 +20,7 @@ while True:
     print("1 - Entrada de N")
     print("2 - Entrado do N-inicial e N-final")
     print("3 - N inicial ou final em razão de um fóton absorvido")
-    print("4 - ")
+    print("4 - N inicial ou final em razão de um fóton emitido")
     print("5 - Entrada de  Ffóton[Hz] ou λFóton[m]: ")
     print("6 - Entrada de Efóton em [eV] ou [J]")
     print("0 - Sair.")
@@ -76,7 +76,7 @@ while True:
 
     elif(opcao == "3"):
         n = float(input("Digite o valor de N (Inicial ou final): "))
-        nOpcao = input("1. N incial / 2. N Final: ")
+        nOpcao = input("1 -> N incial / 2 -> N Final: ")
         if(nOpcao == "1"):
             nOpcao = True
         elif(nOpcao == "2"):
@@ -84,6 +84,7 @@ while True:
         else:
             print("Entrada inválida.")
             print()
+            continue
             
         while(True):
             fotonOpcao = input("Os dados do fóton serão em Frequência(f)(1), ou  em Comprimento de Onda(λ)(2)?: ")
@@ -112,7 +113,41 @@ while True:
         print()
     
     elif(opcao == "4"):
-        ...
+        n = float(input("Digite o valor de N (Inicial ou final): "))
+        nOpcao = input("1 -> N inicial / 2 -> N Final: ")
+        if nOpcao == "1":
+            nOpcao = True
+        elif nOpcao == "2":
+            nOpcao = False
+        else:
+            print("Entrada inválida.")
+            print()
+            continue  # Retorna ao início do loop para uma nova entrada
+
+        while True:
+            fotonOpcao = input("Os dados do fóton serão em Frequência(f)(1), ou em Comprimento de Onda(λ)(2)?: ")
+            if fotonOpcao == "1":
+                fotonOpcao = True
+                foton = float(input("Digite a frequência do fóton [Hz]: "))
+                break
+            elif fotonOpcao == "2":
+                fotonOpcao = False
+                foton = float(input("Digite o comprimento do fóton [m]: "))
+                break
+            else:
+                print("Entrada inválida, digite novamente.")
+
+        nReturn, nReturnInt, nReturnInicial = nPorFotonEmitido(n, foton, nOpcao, fotonOpcao)
+
+        if nReturnInicial:
+            inicialOuFinal = "Inicial"
+        else:
+            inicialOuFinal = "Final"
+
+        print()
+        print(f"Energia do Número quântico {inicialOuFinal} (N): {round(nReturn, 2)} [eV]")
+        print(f"Número Quântico {inicialOuFinal}: {nReturnInt}")
+        print()
 
 
     elif(opcao == "5"):
