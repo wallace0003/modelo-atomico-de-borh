@@ -189,10 +189,10 @@ while True:
 
     elif(opcao == "6"):
         print("Digite a opção que deseja.")
-        uniEfoton = str(input("1 -> Efóton[eV] | 2 -> Efóton[J]"))
+        uniEfoton = str(input("1 -> Efóton[eV] | 2 -> Efóton[J]: "))
         while(uniEfoton != "1" and  uniEfoton != "2"):
             print("Digitação inválida, digite apenas 1 ou 2")
-            uniEfoton= str(input("1 -> Efóton[eV] | 2 -> Efóton[J]"))
+            uniEfoton= str(input("1 -> Efóton[eV] | 2 -> Efóton[J]: "))
 
         if(uniEfoton == "1"):
             efoton = float(input("Digite Efóton(Energia do fóton) [eV]: "))
