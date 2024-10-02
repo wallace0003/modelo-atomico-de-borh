@@ -60,11 +60,9 @@ def nPorFotonAbsorvido(n, foton, nInicial = True, fotonFrequencia = True):
     else:
         nReturn = nEnergia - energiaFoton
     
-    nReturn = round(nReturn, 2)
-    
-    
     nReturnInicial = not(nInicial)
     nReturnInt = round(sqrt(13.6/abs(nReturn)))
+    nReturn = round(sqrt(13.6/abs(nReturn)), 2)
     
     return nReturn, nReturnInt, nReturnInicial
 
@@ -109,10 +107,9 @@ def nPorFotonEmitido(n, foton, nInicial=True, fotonFrequencia=True):
     else:
         nReturn = nEnergia + energiaFoton
         
-    nReturn = round(nReturn, 2)
-
-    nReturnInicial = not nInicial
-    nReturnInt = round(sqrt(13.6 / abs(nReturn)))
+    nReturnInicial = not(nInicial)
+    nReturnInt = round(sqrt(13.6/abs(nReturn)))
+    nReturn = round(sqrt(13.6/abs(nReturn)), 2)
 
     return nReturn, nReturnInt, nReturnInicial
 

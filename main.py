@@ -110,8 +110,8 @@ while True:
                 inicialOuFinal = "Final"
             
             print()
-            print(f"Energia do Número quântico {inicialOuFinal}: {nReturn} [eV]")
-            print(f"Número Quântico(N) {inicialOuFinal}: {nReturnInt}")
+            print(f"Número quântico {inicialOuFinal} (N): {nReturn}")
+            print(f"Número Quântico {inicialOuFinal} (N Inteiro): {nReturnInt}")
             print()
             
         except:
@@ -153,8 +153,8 @@ while True:
                 inicialOuFinal = "Final"
 
             print()
-            print(f"Energia do Número quântico {inicialOuFinal} (N): {nReturn} [eV]")
-            print(f"Número Quântico {inicialOuFinal}: {nReturnInt}")
+            print(f"Número quântico {inicialOuFinal} (N): {nReturn}")
+            print(f"Número Quântico {inicialOuFinal} (N Inteiro): {nReturnInt}")
             print()
         except:
             print("Valor inválido")
