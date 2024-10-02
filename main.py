@@ -1,11 +1,159 @@
 from funcoes import *
 
+from math import sqrt
+
+consBohr = 5.29 * (10 ** -11)
+veloEletron = 2.187 * (10**6)
+hJaule = 6.62607015 * (10**-34)
+hEv = 4.1356677 * (10**-15)
+mEletron = 9.10938356 * (10**-31)
+c = 3e8
+const_energia = 13.6 #(eV)
+converte_eV_para_Joules = 1.60218e-19
+
+#Ela não quer nenhum valor negativo!
+
+def raioOrbita(n):
+    raio = (n**2) * consBohr
+    velocidade = veloEletron/n
+    eCinetica = 13.6 / (n**2)
+    ePotencial = -27.2 / (n**2)
+    eTotal = -13.6 / (n**2)
+    ondaBroglie = hJaule / (mEletron * velocidade)
+    return raio, velocidade, eCinetica, ePotencial, eTotal, ondaBroglie
+
+
+def calcular_foton(nI, nF):
+    # Energia do fóton em eV
+    energiaFotonEm_eV = const_energia * ((1 / nI**2) - (1 / nF**2))
+    
+    # Convertendo energia do fóton de eV para Joules
+    energiaFotonJ = energiaFotonEm_eV * converte_eV_para_Joules
+    
+    # Frequência do fóton (ffóton)
+    frequenciaFoton = energiaFotonJ / hJaule
+    
+    # Comprimento de onda do fóton (λfóton)
+    comprimentoOndaFoton = (hJaule * c) / energiaFotonJ
+    
+    return energiaFotonEm_eV, energiaFotonJ, frequenciaFoton, comprimentoOndaFoton
+
+def nPorFotonAbsorvido(n, foton, nInicial = True, fotonFrequencia = True):
+    # n = n inicial ou n fínal do eletron
+    # foton = frequencia ou comprimento (lambda) do fóton
+    # nInicial(true): n = incial
+    # fotonFrequencia(true): foton = Frequencia do fóton  
+    
+    nEnergia = -13.6/(n**2)
+    nReturn = None
+    energiaFoton = None
+    
+    # Cálculo da energia do fóton
+    if(fotonFrequencia):
+        energiaFoton = foton * hEv
+        
+    else:
+        # foton como lambda
+        energiaFoton = (hEv * c)/foton
+        
+    # Cálculo de n com base na energia do fóton
+    if(nInicial):
+        nReturn = nEnergia + energiaFoton
+    else:
+        nReturn = nEnergia - energiaFoton
+    
+    nReturnInicial = not(nInicial)
+    nReturnInt = round(sqrt(13.6/abs(nReturn)))
+    nReturn = round(sqrt(13.6/abs(nReturn)), 2)
+    
+    return nReturn, nReturnInt, nReturnInicial
+
+def energiaPorComprimento(lambdaFoton):
+    try:
+        eEv = hEv*c/lambdaFoton
+        eJ = hJaule*c/lambdaFoton
+        return eEv,eJ
+
+    except ZeroDivisionError:
+        print("Impossível fazer está operação!")
+
+def energiaPorFrequencia(frequencia):
+    eEv = (hEv * frequencia)
+    eJ = (hJaule * frequencia)
+    return eEv, eJ
+
+def energiaEv(efoton):
+    comprimento = (hEv*c) / efoton
+    frequencia = (efoton / hEv)
+    return comprimento, frequencia
+
+def energiaJ(efoton):
+    comprimento = (hJaule*c) / efoton
+    frequencia = (efoton / hJaule)
+    return comprimento, frequencia
+
+def nPorFotonEmitido(n, foton, nInicial=True, fotonFrequencia=True):
+    nEnergia = -13.6/(n**2)
+    energiaFoton = None
+
+    # Cálculo da energia do fóton
+    if fotonFrequencia:
+        energiaFoton = foton * hEv
+    else:
+        # foton como lambda
+        energiaFoton = (hEv * c) / foton
+
+    # Cálculo de n com base na energia do fóton emitido
+    if nInicial:
+        nReturn = nEnergia - energiaFoton
+    else:
+        nReturn = nEnergia + energiaFoton
+        
+    nReturnInicial = not(nInicial)
+    nReturnInt = round(sqrt(13.6/abs(nReturn)))
+    nReturn = round(sqrt(13.6/abs(nReturn)), 2)
+
+    return nReturn, nReturnInt, nReturnInicial
+
+    
+
 print("""Autores:
 
 Jônatas da Silva Gonçalves.
 Wallace dos Santos Izidoro.
 Pedro Henrique da Fonseca do Nascimento.
 Vinícius do Nascimento Generoso.\n""")
+
+print("""
+Estudo do Modelo de Bohr e Cálculos Relacionados com Programação em Python
+
+Este código em Python foi desenvolvido para realizar diversos cálculos relacionados ao modelo de Bohr, que descreve o comportamento
+dos elétrons em átomos. Os cálculos são acessíveis por meio de um menu interativo, onde o usuário pode fornecer parâmetros específicos
+e obter resultados pertinentes.
+
+Funcionalidades: Entrada com N (Número Quântico): Calcula o raio da órbita do elétron, sua velocidade, energia cinética, energia potencial, 
+energia total e comprimento de onda de De Broglie.
+
+Entrada de N-inicial e N-final: Determina a energia, frequência e comprimento de onda de um fóton quando um elétron transita entre dois 
+níveis quânticos.
+
+Cálculo do Número Quântico em razão de um Fóton Absorvido: Identifica o número quântico final (ou inicial) com base na energia de um 
+fóton absorvido, considerando a entrada como frequência ou comprimento de onda.
+
+Cálculo do Número Quântico em razão de um Fóton Emitido: Semelhante ao cálculo anterior, mas para a energia de um fóton emitido.
+
+Entrada de Energia de um Fóton: Permite calcular o comprimento de onda, frequência e energia em diferentes unidades (eV ou Joules) a 
+partir de uma entrada de energia do fóton.
+
+Limitações: Os cálculos são realizados corretamente apenas quando o usuário utiliza as unidades de medida solicitadas pelo algoritmo.
+
+Breve Explicação: O modelo de Bohr é fundamental para entender como os elétrons se comportam em átomos, com níveis de energia quantizados. 
+As transições entre esses níveis resultam na emissão ou absorção de fótons, cujas energias estão relacionadas ao número quântico. A programação
+em Python automatiza esses cálculos, fornecendo uma interface que facilita a obtenção de propriedades atômicas a partir de valores iniciais como
+números quânticos ou energia de fótons. Esse modelo é essencial para a compreensão de fenômenos como a espectroscopia e a estrutura atômica.
+""")
+
+print()
 
 print("Calculadora do Modelo de Borh  em Python\n")
 
