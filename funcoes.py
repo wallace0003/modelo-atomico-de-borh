@@ -113,4 +113,9 @@ def nPorFotonEmitido(n, foton, nInicial=True, fotonFrequencia=True):
 
     return nReturn, nReturnInt, nReturnInicial
 
-    
+def sequenciasSeries():
+    print("Série de Lyman: 1 - 7")
+    print("Série de  Balmer: 2 - 7")
+    print("Série de Paschen: 3 - 7")
+    print("Série de Brackett: 4 - 7")
+    print("Série de  Pfund: 5 - 7")

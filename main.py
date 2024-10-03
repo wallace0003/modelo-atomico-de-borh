@@ -17,12 +17,13 @@ while True:
         
     print("-" * 30)
 
-    print("1 - Dados do elétron a partir de N")
-    print("2 - Dados do fóton emitido/absorvido a partir de N-inicial e N-final")
-    print("3 - N inicial ou final em razão de um fóton absorvido")
-    print("4 - N inicial ou final em razão de um fóton emitido")
-    print("5 - Energia do fóton a partir da frequência (f) ou comprimento de onda (λ)")
-    print("6 - Dados de frequência (f) e comprimento de onda (λ) do fóton a partir da energia")
+    print("1 - Dados do elétron a partir de N.")
+    print("2 - Dados do fóton emitido/absorvido a partir de N-inicial e N-final.")
+    print("3 - N inicial ou final em razão de um fóton absorvido.")
+    print("4 - N inicial ou final em razão de um fóton emitido.")
+    print("5 - Energia do fóton a partir da frequência (f) ou comprimento de onda (λ).")
+    print("6 - Dados de frequência (f) e comprimento de onda (λ) do fóton a partir da energia.")
+    print("7 - Sequência de séries.")
     print("0 - Sair.")
     print()
 
@@ -213,6 +214,10 @@ while True:
             print(f"λFóton (comprimento de onda do fóton): {comprimentoNotacao} [m]")
             print(f"Ffóton (frequência do fóton): {frequenciaNotacao} [Hz]")
             print()
+
+    
+    elif(opcao == "7"):
+        sequenciasSeries()
 
 
         
