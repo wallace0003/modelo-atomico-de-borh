@@ -14,7 +14,6 @@ print("1.23 x 10^4 --> 1.23e4\n")
 
 while True:
     print("Menu: ")
-        
     print("-" * 100)
     print("1 - Dados do elétron a partir de N.")
     print("2 - Dados do fóton emitido/absorvido a partir de N-inicial e N-final.")
@@ -27,6 +26,8 @@ while True:
     print('''9 - Obter N atrávez de: [Velocidade] [Raio da órbita] [energia cinética]
     [Energia potencial] [energia total]''')
     print("10 - O que possíveis dados do enunciado pode ser.")
+    print("11 - Classificação do espectro eletromagnético em intervalos. ")
+    print("12 - Exibir tabela de possíveis conversões")
     print("0 - Sair.")
     print("-" * 100)
     print()
@@ -283,12 +284,24 @@ while True:
             print()
 
         else:
+            print()
             print("opção inválida!")
+            print()
 
     elif(opcao == "10"):
+        print()
         dadosEnuciado()
+        print()
 
+    elif(opcao == "11"):
+        print()
+        classificacaoEletromag()
+        print()
 
+    elif(opcao == "12"):
+        print()
+        tabelaConversoes()
+        print()
         
     elif(opcao == "0"):
         print("Saindo...")

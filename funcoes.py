@@ -114,11 +114,11 @@ def nPorFotonEmitido(n, foton, nInicial=True, fotonFrequencia=True):
     return nReturn, nReturnInt, nReturnInicial
 
 def sequenciasSeries():
-    print("Série de Lyman: 1 - 7")
-    print("Série de  Balmer: 2 - 7")
-    print("Série de Paschen: 3 - 7")
-    print("Série de Brackett: 4 - 7")
-    print("Série de  Pfund: 5 - 7")
+    print("Série de Lyman: [1,∞)")
+    print("Série de  Balmer: [2,∞)")
+    print("Série de Paschen: [3,∞)")
+    print("Série de Brackett: [4,∞)")
+    print("Série de  Pfund: [5,∞)")
 
 def estadosExcitados():
     print("Estado fundamental N = 1")
@@ -163,5 +163,50 @@ def nPorEnergiaT(energiaT):
 def dadosEnuciado():
     print("Orbita a uma distância X do núcleo...")
     print("Significa que X é o raio da orbita.")
+    print()
+    print("Obter a maior frequência de onda de uma série:")
+    print("o N inicial = N inicial da série")
+    print("N final = N tendendo a infinito, pode ser N(final) = 1.000.000")
+    print()
+    print("Obter o maior comprimento de onda de uma série:")
+    print("o N inicial = N inicial da série")
+    print("N final =  N incial + 1")
+    print()
+
+def classificacaoEletromag():
+    print("Raios gama -> (λfóton) < 0.01 [nm]")
+    print("Raios X ->  0.01 [nm] <= (λfóton) < 10 [nm]")
+    print("Ultravioleta (UV) -> 10 [nm] <= (λfóton) < 400 [nm]")
+    print("Visível (Vermelho – Violeta) -> 400 [nm] <= (λfóton) < 700 [nm]")
+    print("Infravermelho (IR) -> 700 [nm] <= (λfóton) < 1.000.000 [nm]")
+    print("Micro-ondas -> 1.000.000 [nm] <= (λfóton) < 1.000.000.000 [nm]")
+    print("Ondas de Rádio -> (λfóton) >= 1.000.000.000 [nm]")
+
+def tabelaConversoes():
+    print("de rad/s -> rad/m = W(frequência angular)/Vluz = W/3x10^8")
+    print()
+    print("nm -> m  = nm * E-9")
+    print("m -> nm = m * E+9")
+    print("um -> m = um * E-6")
+    print("m -> um = m * E+6")
+    print("mc -> m  = mc * E-6")
+    print("m -> mc = m * E+6") 
+    print()
+    print("Hz -> KHz = Hz *e-3")
+    print("Khz -> Hz = Khz*e+3")
+    print("Hz -> mHz = Hz * E-6")
+    print("mHz -> Hz = mHz * E+6")
+    print("Hz -> THz = Hz * E-12")
+    print("THz -> Hz = THz * E+12")
+    print("Hz -> GHz = Hz * E-9")
+    print("GHz - > Hz = Hz * E+9")
+    print()
+    print("V/m -> MV/m = V/m * E-6")
+    print("MV/m -> V/m = MV/m * E+6")
+    print()
+    print("mT -> T = mT * E-3")
+    print("T -> mT = T * E+3")
+    print("uT -> T = uT * E-6")
+    print("T -> uT = T * E+6")
     
     
