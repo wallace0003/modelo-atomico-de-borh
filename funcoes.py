@@ -125,3 +125,38 @@ def estadosExcitados():
     print("Segundo estado excitado = 3")
     print("Terceiro estado excitado = 4")
     print("Assim sucessivamente...!")
+
+def nPorVelocidade(velocidade):
+    n = round(veloEletron/velocidade , 2)
+    nInteiro = round(n, 0)
+    return n, nInteiro
+
+def nPorRaio(raio):
+    n = sqrt(raio / consBohr)
+    nFloat = round(n, 2)
+    return nFloat, int(n)
+
+def nPorEnergiaC(energiaC):
+    n = sqrt(13.6 / energiaC)
+    nFloat = round(n, 2)
+    return nFloat, int(n)
+
+def nPorEnergiaP(energiaP):
+    n = -27.2/energiaP
+    if(n < 0):
+        n = n * -1
+    
+    n = sqrt(n)
+    nFloat = round(n, 2)
+    return nFloat, int(n)
+
+def nPorEnergiaT(energiaT):
+    n = -13.6 / energiaT
+    if(n < 0):
+        n = n * -1
+    
+    n = sqrt(n)
+    nFloat = round(n, 2)
+    return nFloat, int(n)
+    
+    

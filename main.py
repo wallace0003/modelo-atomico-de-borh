@@ -15,8 +15,7 @@ print("1.23 x 10^4 --> 1.23e4\n")
 while True:
     print("Menu: ")
         
-    print("-" * 30)
-
+    print("-" * 60)
     print("1 - Dados do elétron a partir de N.")
     print("2 - Dados do fóton emitido/absorvido a partir de N-inicial e N-final.")
     print("3 - N inicial ou final em razão de um fóton absorvido.")
@@ -25,7 +24,10 @@ while True:
     print("6 - Dados de frequência (f) e comprimento de onda (λ) do fóton a partir da energia.")
     print("7 - Sequência de séries.")
     print("8 - Estados excitados do átomo.")
+    print('''9 - Obter N atrávez da [Velocidade] [Raio da órbita] [energia cinética]
+    [Energia potencial] [energia total]''')
     print("0 - Sair.")
+    print("-" * 60)
     print()
 
     opcao = str(input("Digite o número da opção desejada: "))
@@ -222,6 +224,62 @@ while True:
 
     elif(opcao == "8"):
         estadosExcitados()
+    
+    elif(opcao == "9"):
+        print('''Com o que deseja entrar:
+        1 - Ráio da órbita.
+        2 - Velocidade do elétron.
+        3 - Energia cinética.
+        4 - Energia potencial.
+        5 - Energia total.
+        ''')
+        
+        entrada = str(input("Opção: "))
+        
+
+        if(entrada == "1"):
+            raio = float(input("Raio da órbita [m]: "))
+            n, nInteiro = nPorRaio(raio)
+            print()
+            print(f"N = {nInteiro}")
+            print(f"N(float) = {n}")
+            print()
+
+        elif(entrada == "2"):
+            velocidade = float(input("Velocidade do eletron [m/s]: "))
+            n, nInteiro = nPorVelocidade(velocidade)
+            print()
+            print(f"N = {nInteiro}")
+            print(f"N(float) = {n}")
+            print()
+
+        elif (entrada == "3"):
+            energiaC = float(input("Energia cinética [eV]: "))
+            n, nInteiro = nPorEnergiaC(energiaC)
+            print()
+            print(f"N = {nInteiro}")
+            print(f"N(float) = {n}")
+            print()
+        
+        elif (entrada == "4"):
+            energiaP = float(input("Energia potencia [eV]: "))
+            n, nInteiro = nPorEnergiaP(energiaP)
+            print()
+            print(f"N = {nInteiro}")
+            print(f"N(float) = {n}")
+            print()
+        
+        elif (entrada == "5"):
+            energiaT = float(input("Energia total [eV]: "))
+            n, nInteiro = nPorEnergiaT(energiaT)
+            print()
+            print(f"N = {nInteiro}")
+            print(f"N(float) = {n}")
+            print()
+
+        else:
+            print("opção inválida!")
+
 
 
         
