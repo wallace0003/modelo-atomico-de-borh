@@ -121,9 +121,10 @@ def sequenciasSeries():
     print("Série de  Pfund: 5 - 7")
 
 def estadosExcitados():
-    print("Primeiro estado excitado = 2")
-    print("Segundo estado excitado = 3")
-    print("Terceiro estado excitado = 4")
+    print("Estado fundamental N = 1")
+    print("Primeiro estado excitado N = 2")
+    print("Segundo estado excitado N = 3")
+    print("Terceiro estado excitado N = 4")
     print("Assim sucessivamente...!")
 
 def nPorVelocidade(velocidade):
@@ -158,5 +159,9 @@ def nPorEnergiaT(energiaT):
     n = sqrt(n)
     nFloat = round(n, 2)
     return nFloat, int(n)
+
+def dadosEnuciado():
+    print("Orbita a uma distância X do núcleo...")
+    print("Significa que X é o raio da orbita.")
     
     

@@ -15,19 +15,20 @@ print("1.23 x 10^4 --> 1.23e4\n")
 while True:
     print("Menu: ")
         
-    print("-" * 60)
+    print("-" * 100)
     print("1 - Dados do elétron a partir de N.")
     print("2 - Dados do fóton emitido/absorvido a partir de N-inicial e N-final.")
     print("3 - N inicial ou final em razão de um fóton absorvido.")
     print("4 - N inicial ou final em razão de um fóton emitido.")
     print("5 - Energia do fóton a partir da frequência (f) ou comprimento de onda (λ).")
     print("6 - Dados de frequência (f) e comprimento de onda (λ) do fóton a partir da energia.")
-    print("7 - Sequência de séries.")
+    print("7 - Sequência de séries (Lyman, Balmer, Paschen, Brackett, Pfund).")
     print("8 - Estados excitados do átomo.")
-    print('''9 - Obter N atrávez da [Velocidade] [Raio da órbita] [energia cinética]
+    print('''9 - Obter N atrávez de: [Velocidade] [Raio da órbita] [energia cinética]
     [Energia potencial] [energia total]''')
+    print("10 - O que possíveis dados do enunciado pode ser.")
     print("0 - Sair.")
-    print("-" * 60)
+    print("-" * 100)
     print()
 
     opcao = str(input("Digite o número da opção desejada: "))
@@ -220,10 +221,14 @@ while True:
 
     
     elif(opcao == "7"):
+        print()
         sequenciasSeries()
+        print()
 
     elif(opcao == "8"):
+        print()
         estadosExcitados()
+        print()
     
     elif(opcao == "9"):
         print('''Com o que deseja entrar:
@@ -280,6 +285,8 @@ while True:
         else:
             print("opção inválida!")
 
+    elif(opcao == "10"):
+        dadosEnuciado()
 
 
         
