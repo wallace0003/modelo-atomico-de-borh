@@ -24,6 +24,7 @@ while True:
     print("5 - Energia do fóton a partir da frequência (f) ou comprimento de onda (λ).")
     print("6 - Dados de frequência (f) e comprimento de onda (λ) do fóton a partir da energia.")
     print("7 - Sequência de séries.")
+    print("8 - Estados excitados do átomo.")
     print("0 - Sair.")
     print()
 
@@ -218,6 +219,9 @@ while True:
     
     elif(opcao == "7"):
         sequenciasSeries()
+
+    elif(opcao == "8"):
+        estadosExcitados()
 
 
         

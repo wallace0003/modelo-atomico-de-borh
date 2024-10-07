@@ -119,3 +119,9 @@ def sequenciasSeries():
     print("Série de Paschen: 3 - 7")
     print("Série de Brackett: 4 - 7")
     print("Série de  Pfund: 5 - 7")
+
+def estadosExcitados():
+    print("Primeiro estado excitado = 2")
+    print("Segundo estado excitado = 3")
+    print("Terceiro estado excitado = 4")
+    print("Assim sucessivamente...!")
