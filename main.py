@@ -28,6 +28,7 @@ while True:
     print("10 - O que possíveis dados do enunciado pode ser.")
     print("11 - Classificação do espectro eletromagnético em intervalos. ")
     print("12 - Exibir tabela de possíveis conversões")
+    print("13 - Quando um átomo de hidrogênio absorve um fóton.")
     print("0 - Sair.")
     print("-" * 100)
     print()
@@ -301,6 +302,11 @@ while True:
     elif(opcao == "12"):
         print()
         tabelaConversoes()
+        print()
+    
+    elif (opcao == "13"):
+        print()
+        transicoesHidrogenio()
         print()
         
     elif(opcao == "0"):

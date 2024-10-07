@@ -167,10 +167,16 @@ def dadosEnuciado():
     print("Obter a maior frequência de onda de uma série:")
     print("o N inicial = N inicial da série")
     print("N final = N tendendo a infinito, pode ser N(final) = 1.000.000")
+    print("Obter a menor frequência de onda de uma série:")
+    print("o N inicial = N inicial da série")
+    print("N final = N incial + 1")
     print()
     print("Obter o maior comprimento de onda de uma série:")
     print("o N inicial = N inicial da série")
     print("N final =  N incial + 1")
+    print("Obter o menor comprimento de onda de uma série:")
+    print("o N inicial = N inicial da série")
+    print("N final = N tendendo a infinito, pode ser N(final) = 1.000.000")
     print()
 
 def classificacaoEletromag():
@@ -208,5 +214,18 @@ def tabelaConversoes():
     print("T -> mT = T * E+3")
     print("uT -> T = uT * E-6")
     print("T -> uT = T * E+6")
-    
+
+def transicoesHidrogenio():
+    print("n=1 - n=2 -> Ef = 10.2 [eV]")
+    print("n=1 - n=3 -> Ef = 12.09 [eV]")
+    print("n=1 - n=4 -> Ef = 12.75 [eV]")
+    print("n=1 - n=5 -> Ef = 13.06 [eV]")
+    print("Se a energia do foton estiver entre esses intervalos:")
+    print("Sim, o elétron fará um salto quântico.")
+    print()
+    print("Se a energia do foton > 13.6: ")
+    print("Sim, mas o átomo seria ionizado.")
+    print()
+    print("Se a energia do foton for menor que os intervalos acima: ")
+    print("Não é possível")
     
