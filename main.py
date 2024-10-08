@@ -14,16 +14,23 @@ print("1.23 x 10^4 --> 1.23e4\n")
 
 while True:
     print("Menu: ")
-        
-    print("-" * 30)
-
-    print("1 - Dados do elétron a partir de N")
-    print("2 - Dados do fóton emitido/absorvido a partir de N-inicial e N-final")
-    print("3 - N inicial ou final em razão de um fóton absorvido")
-    print("4 - N inicial ou final em razão de um fóton emitido")
-    print("5 - Energia do fóton a partir da frequência (f) ou comprimento de onda (λ)")
-    print("6 - Dados de frequência (f) e comprimento de onda (λ) do fóton a partir da energia")
+    print("-" * 100)
+    print("1 - Dados do elétron a partir de N.")
+    print("2 - Dados do fóton emitido/absorvido a partir de N-inicial e N-final.")
+    print("3 - N inicial ou final em razão de um fóton absorvido.")
+    print("4 - N inicial ou final em razão de um fóton emitido.")
+    print("5 - Energia do fóton a partir da frequência (f) ou comprimento de onda (λ).")
+    print("6 - Dados de frequência (f) e comprimento de onda (λ) do fóton a partir da energia.")
+    print("7 - Sequência de séries (Lyman, Balmer, Paschen, Brackett, Pfund).")
+    print("8 - Estados excitados do átomo.")
+    print('''9 - Obter N atrávez de: [Velocidade] [Raio da órbita] [energia cinética]
+    [Energia potencial] [energia total]''')
+    print("10 - O que possíveis dados do enunciado pode ser.")
+    print("11 - Classificação do espectro eletromagnético em intervalos. ")
+    print("12 - Exibir tabela de possíveis conversões")
+    print("13 - Quando um átomo de hidrogênio absorve um fóton.")
     print("0 - Sair.")
+    print("-" * 100)
     print()
 
     opcao = str(input("Digite o número da opção desejada: "))
@@ -214,7 +221,93 @@ while True:
             print(f"Ffóton (frequência do fóton): {frequenciaNotacao} [Hz]")
             print()
 
+    
+    elif(opcao == "7"):
+        print()
+        sequenciasSeries()
+        print()
 
+    elif(opcao == "8"):
+        print()
+        estadosExcitados()
+        print()
+    
+    elif(opcao == "9"):
+        print('''Com o que deseja entrar:
+        1 - Ráio da órbita.
+        2 - Velocidade do elétron.
+        3 - Energia cinética.
+        4 - Energia potencial.
+        5 - Energia total.
+        ''')
+        
+        entrada = str(input("Opção: "))
+        
+
+        if(entrada == "1"):
+            raio = float(input("Raio da órbita [m]: "))
+            n, nInteiro = nPorRaio(raio)
+            print()
+            print(f"N = {nInteiro}")
+            print(f"N(float) = {n}")
+            print()
+
+        elif(entrada == "2"):
+            velocidade = float(input("Velocidade do eletron [m/s]: "))
+            n, nInteiro = nPorVelocidade(velocidade)
+            print()
+            print(f"N = {nInteiro}")
+            print(f"N(float) = {n}")
+            print()
+
+        elif (entrada == "3"):
+            energiaC = float(input("Energia cinética [eV]: "))
+            n, nInteiro = nPorEnergiaC(energiaC)
+            print()
+            print(f"N = {nInteiro}")
+            print(f"N(float) = {n}")
+            print()
+        
+        elif (entrada == "4"):
+            energiaP = float(input("Energia potencia [eV]: "))
+            n, nInteiro = nPorEnergiaP(energiaP)
+            print()
+            print(f"N = {nInteiro}")
+            print(f"N(float) = {n}")
+            print()
+        
+        elif (entrada == "5"):
+            energiaT = float(input("Energia total [eV]: "))
+            n, nInteiro = nPorEnergiaT(energiaT)
+            print()
+            print(f"N = {nInteiro}")
+            print(f"N(float) = {n}")
+            print()
+
+        else:
+            print()
+            print("opção inválida!")
+            print()
+
+    elif(opcao == "10"):
+        print()
+        dadosEnuciado()
+        print()
+
+    elif(opcao == "11"):
+        print()
+        classificacaoEletromag()
+        print()
+
+    elif(opcao == "12"):
+        print()
+        tabelaConversoes()
+        print()
+    
+    elif (opcao == "13"):
+        print()
+        transicoesHidrogenio()
+        print()
         
     elif(opcao == "0"):
         print("Saindo...")
